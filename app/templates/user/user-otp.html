@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Enter Otp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="/static/css/user.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <script src="/static/js/user_otp.js" ></script>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-card">
+        <div class="flex-col-center">
+          <div class="icon-container mb-2">
+            <img src="/static/assets/images/iot-icon.svg" alt="iot-icon" />
+          </div>
+          <div class="flex-row-jst-btwn g-5">
+            <a href="/" class="back-button">
+              <i class="fas fa-arrow-left"></i>
+            </a>
+            <div class="flex-col-center g-2">
+              <h1 class="primary-heading pb-2 text-center">Verify Your Identity</h1>
+              <p class="secondary-para pb-2 text-center">Enter the 6-digit code sent to</p>
+              <h5 class="primary-small-heading pb-3">{{email}}</h5>
+            </div>
+          </div>
+
+          <form
+            method="POST"
+            action="/user-otp"
+            onsubmit="return combineOtp();"
+          >
+            <div class="flex-center g-3">
+              <input
+                type="password"
+                maxlength="1"
+                class="otp-input"
+                id="otp1"
+                oninput="moveNext(this, 'otp2')"
+                required
+              />
+              <input
+                type="password"
+                maxlength="1"
+                class="otp-input"
+                id="otp2"
+                oninput="moveNext(this, 'otp3')"
+                required
+              />
+              <input
+                type="password"
+                maxlength="1"
+                class="otp-input"
+                id="otp3"
+                oninput="moveNext(this, 'otp4')"
+                required
+              />
+              <input
+                type="password"
+                maxlength="1"
+                class="otp-input"
+                id="otp4"
+                oninput="moveNext(this, 'otp5')"
+                required
+              />
+              <input
+                type="password"
+                maxlength="1"
+                class="otp-input"
+                id="otp5"
+                oninput="moveNext(this, 'otp6')"
+                required
+              />
+              <input
+                type="password"
+                maxlength="1"
+                class="otp-input"
+                oninput="hideLastBox(this)"
+                id="otp6"
+                required
+              />
+            </div>
+            <input type="hidden" name="otp" id="combinedOtp" />
+            <br />
+            <button type="Submit" class="primary-button w-100 mb-3">Verify</button>
+            <div class="flex-col-center">
+              {% if error == "invalid" %}
+              <p class="error-message pb-2">Invalid OTP. Please try again.</p>
+              {% endif %}
+              <p class="third-para">Didn't receive the code? Resend</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
