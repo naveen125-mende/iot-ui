@@ -1,51 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Login</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="/static/css/style.css" />
-    <link rel="stylesheet" href="/static/css/user.css" />
-  </head>
-  <body>
-    <div class="login-container">
-      <div class="login-card">
-        <div class="flex-col-center">
-          <div class="icon-container mb-2">
-            <img src="/static/assets/images/iot-icon.svg" alt="iot-icon" />
-          </div>
-          <h1 class="primary-heading pb-1">Welcome</h1>
-          <p class="secondary-para pb-3 text-center">
-            Monitor and manage your connected devices with ease
-          </p>
-          <form method="POST" action="/" class="form-container">
-            <div class="form-group">
-              <label for="id_username">Username</label>
-              <input type="text" name="username" id="id_username" required class="w-100" />
-            </div>
-            <div class="form-group">
-              <label for="id_email">Email</label>
-              <input
-                type="email"
-                name="email"
-                id="id_email"
-                required
-                class="w-100"
-              />
-            </div>
-            <div class="d-flex align-items-baseline g-2">
-              <input
-                type="checkbox"
-                id="rememberMe"
-                name="remember_me"
-                value="yes"
-              />
-              <label for="rememberMe">Remember Me</label>
-            </div>
-            <button type="Submit" class="primary-button w-100">Login</button>
-          </form>
-        </div>
+{% extends "base.html" %} {% block title %}User Login{% endblock %} {% block
+extra_styles %}
+<link rel="stylesheet" href="/static/css/user.css" />
+{% endblock %} {% block content %}
+<div class="login-container">
+  <div class="login-card">
+    <div class="flex-col-center">
+      <div class="icon-container mb-2">
+        <img src="/static/assets/images/iot-icon.svg" alt="iot-icon" />
       </div>
+      <h1 class="primary-heading pb-1">Welcome</h1>
+      <p class="secondary-para pb-3 text-center">
+        Monitor and manage your connected devices with ease
+      </p>
+      <form method="POST" action="/" class="form-container">
+        <div class="form-group">
+          <label for="id_username">Username</label>
+          <input
+            type="text"
+            name="username"
+            id="id_username"
+            required
+            class="w-100"
+          />
+        </div>
+        <div class="form-group">
+          <label for="id_email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="id_email"
+            required
+            class="w-100"
+          />
+        </div>
+        <div class="d-flex align-items-baseline g-2">
+          <input
+            type="checkbox"
+            id="rememberMe"
+            name="remember_me"
+            value="yes"
+          />
+          <label for="rememberMe">Remember Me</label>
+        </div>
+        <button type="Submit" class="primary-button w-100">Login</button>
+      </form>
     </div>
-  </body>
-</html>
+  </div>
+</div>
+{% endblock %}
